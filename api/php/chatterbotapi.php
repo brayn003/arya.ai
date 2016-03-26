@@ -275,15 +275,25 @@
     {
         $contextParams = array();
         $contextParams['http'] = array();
+        $contextParams['http']['header'] = "";
+
+        // proxy
+        $auth = base64_encode('b10:mangesh');
+        $proxy_string = "tcp://10.0.3.246:8070";
+        $contextParams['http']['proxy'] = $proxy_string;
+        $contextParams['http']['request_fulluri'] = true;
+        $contextParams['http']['header'] .= "Proxy-Authorization: Basic $auth\r\n";
+        // proxy end
+
+
+
         if ($params)
         {
             $contextParams['http']['method'] = 'POST';
             $contextParams['http']['content'] = http_build_query($params);
-            $contextParams['http']['header'] = "Content-type: application/x-www-form-urlencoded\r\n";
+            $contextParams['http']['header'] .= "Content-type: application/x-www-form-urlencoded\r\n";
 
-            // proxy
-            // $proxy_string = "http://b10:mangesh@10.0.3.246:8070";
-            // $contextParams['http']['proxy'] = $proxy_string;
+            
 
         }
         else
