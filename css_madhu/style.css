@@ -5,7 +5,8 @@
 body {
   position: relative;
   overflow-x: hidden;
-  background-color: #2d5986;
+    background-image: url("bg2.jpg");
+/*  background-color: #2d5986; */
 }
 
 .info-panel * {
@@ -31,7 +32,7 @@ body {
   width: 25vw;
   height: 44.5vw;
   min-width: 100%;
-  min-height: 889px;
+  min-height: 100%;
 }
 
 .chat-ui-canvas {
@@ -40,8 +41,8 @@ body {
   width: 19vw;
   height: 33.5vw;
   min-width: 85%;
-  min-height: 604px;
-  background-image: url("bg.jpg");
+  min-height: 600px;
+  background-image: url("pic2.jpg");
   background-size: cover;
   overflow: hidden;
   top: 3vw;
@@ -330,7 +331,7 @@ body {
   font-family: "Lato", sans-serif;
   color: white;
   font-weight: 300;
-  font-size: 0.8em;
+  font-size: 1em;
   margin: 1%;
 }
 .message-feed .message .message-timestamp {
