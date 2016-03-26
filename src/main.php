@@ -46,7 +46,7 @@
             echo json_encode(array('reply' => $rmsg));
         }
     }else{
-        $command = new BaseCommand($parsecode);
+        $command = new BaseCommand($_SESSION['command']['parsecode']);
         $command->execute($msg);
         unset($_SESSION['command']);
         echo json_encode(array('reply' => 'Done' ));

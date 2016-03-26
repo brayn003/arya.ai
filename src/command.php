@@ -17,6 +17,9 @@
 						case 'take':
 							$parsecode[0] = 1;
 							break;
+						case 'make':
+							$parsecode[0] = 2;
+							break;
 						default:
 							$parsecode[0] = 0;
 							break;

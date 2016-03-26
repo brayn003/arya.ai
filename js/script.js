@@ -23,7 +23,7 @@ window.onload = function () {
         
         messageHeight = messageFeed.offsetHeight;
     
-        var heightToScroll = (130);
+        var heightToScroll = (90);
         var header = document.getElementById('header');
     
         if(messageFeed.scrollTop > heightToScroll){
@@ -59,13 +59,13 @@ window.onload = function () {
         
         function appendMessage(msg) {
             $('#message-feed').append(
-                '<div class="message message-to"><div class="message-name"><h1>' + username + '</h1></div><div class="message-body"><p>' + msg + '</p></div><div class="message-timestamp"><p>Today ' + h + ' : ' + m + '</p></div>'   
+                '<div class="message message-to"><div class="message-name"><p>' + username + '</p></div><div class="message-timestamp"><p>Today ' + h + ' : ' + m + '</p></div><div class="message-body"><p>' + msg + '</p></div>'   
             );
         }
 
         function appendRmessage(msg) {
             $('#message-feed').append(
-                '<div class="message message-from"><div class="message-name"><h1>arya.ai</h1></div><div class="message-body"><p>' +msg+ '</p></div><div class="message-timestamp"><p>Today ' + h + ' : ' + m + '</p></div>'   
+                '<div class="message message-from"><div class="message-name"><p>arya.ai</p></div><div class="message-timestamp"><p>Today ' + h + ' : ' + m + '</p></div><div class="message-body"><p>' +msg+ '</p></div>'   
             );
         }
         
@@ -85,6 +85,9 @@ window.onload = function () {
                 // alert(rmsg.msg);
                 appendRmessage(rmsg.reply);
                 messageFeed.scrollTop = messageFeed.scrollHeight;
+                $('#message-input').prop('disabled', false);
+                $('#message-input').attr("placeholder", "Type your message here");
+
               // $( "#log" ).html( msg );
             });
              
@@ -99,6 +102,8 @@ window.onload = function () {
             messageFeed.scrollTop = messageFeed.scrollHeight;
             sendMessage(messageVal);
             $('#message-input').val("");
+            $('#message-input').prop('disabled', true);
+            $('#message-input').attr("placeholder", "Arya is thinking ...");
         }        
         
     };

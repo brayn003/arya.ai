@@ -37,24 +37,27 @@ body {
 
 .chat-ui-canvas {
   position: relative;
-  margin: 0 auto;
-  width: 19vw;
-  height: 33.5vw;
-  min-width: 85%;
-  min-height: 600px;
+  width: 100%;
+  height: 100%;
+  /*margin: 0 auto;*/
+  /*width: 19vw;*/
+  /*height: 33.5vw;*/
+  /*min-width: 85%;*/
+  /*min-height: 600px;*/
   background-image: url("../asset/img/pic2.jpg");
   background-size: cover;
   overflow: hidden;
-  top: 3vw;
-  border: 8px white solid;
-  border-radius: 20px;
-  box-shadow: 3px 3px 3px;
+  /*top: 3vw;*/
+  /*border: 8px white solid;*/
+  /*border-radius: 20px;*/
+  /*box-shadow: 3px 3px 3px;*/
 }
 
 .header {
-  outline: white 3px solid;
+  /*outline: white 3px solid;*/
+  /*background: rgba(12,12,12,0.6);*/
   position: relative;
-  top: 0px;
+  /*top: -20px;*/
 }
 
 .header.header-unscrolled {
@@ -286,7 +289,7 @@ body {
 .message-feed {
   position: relative;
   width: 100%;
-  bottom: 0px !important;
+  /*bottom: 20px !important;*/
   height: 51%;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -295,10 +298,11 @@ body {
   margin: 0 auto;
 }
 .message-feed .message {
-  margin-left: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
   position: relative;
   width: 90%;
-  border-bottom: 1px white solid;
+  border-bottom: 1px rgba(255,255,255,0.4) solid;
   padding: 1%;
   padding-left: 5%;
   padding-right: 5%;
@@ -331,8 +335,8 @@ body {
   font-family: "Lato", sans-serif;
   color: white;
   font-weight: 300;
-  font-size: 1em;
-  margin: 1%;
+  font-size: 2em;
+  margin: 0px;
 }
 .message-feed .message .message-timestamp {
   position: relative;
@@ -345,9 +349,10 @@ body {
   color: white;
   font-weight: 700;
   font-size: 0.7em;
-  margin: 1%;
+  margin: 0px;
+  /*margin: 1%;
   margin-top: 3%;
-  margin-bottom: 3%;
+  margin-bottom: 3%;*/
 }
 .message-feed .message.message-to * {
   text-align: right;
@@ -361,7 +366,7 @@ body {
   position: absolute;
   z-index: 3;
   background: rgba(0, 0, 0, 0.3);
-  outline: white 3px solid;
+  /*outline: white 3px solid;*/
   width: 100%;
   height: 10%;
   bottom: 0px !important;
@@ -415,28 +420,40 @@ body {
   box-sizing: border-box;
   margin: 0px;
   position: absolute;
-  width: 80%;
+  width: 100%;
   height: 100%;
   right: 0px;
 }
+
 .message-input-bar .message-text-input form {
   width: 100%;
   height: 100%;
   position: relative;
 }
+
+
 .message-input-bar .message-text-input form textarea {
   position: relative;
   margin: 0 auto;
-  width: 80%;
-  height: 73%;
+  width: 100%;
+  height: 100%;
   left: 0%;
-  top: 20%;
-  font-size: 1.2em;
+  top: 0%;
+  font-size: 1.1em;
   font-family: "lato", sans-serif;
-  padding-left: 2%;
+  padding:9px 18px;
   overflowY: scroll;
   resize: none;
   border-radius: 0px !important;
+  border: none;
+}
+
+
+@media(min-width: 992px){
+  .message-input-bar .message-text-input form textarea {
+    padding:18px;
+    font-size: 1.2em;
+  }
 }
 
 .media-bar {
@@ -546,4 +563,32 @@ body {
 .media-bar.media-bar-open {
   top: -17.6% !important;
   transition: top 0.5s ease-in-out;
+}
+
+
+
+/*custom*/
+html, body{
+  height: 100%;
+}
+
+.fullheight{
+  height: 100%;
+}
+
+.chat-title{
+  padding-top:72px;
+  color:#FFF;
+  font-family:'lato';
+  font-size: 48px;
+  font-weight: 300;
+}
+
+.header-scrolled .chat-title{
+  padding-top: 24px;
+  font-size: 24px;
+}
+
+.message-name p{
+  color:#FFF;
 }
