@@ -1,0 +1,6 @@
+{
+  "directory": "lib",
+  "proxy": "http://rudraprasad:rudraprasad@10.0.3.246:8070",
+  "https-proxy":"http://rudraprasad:rudraprasad@10.0.3.246:8070",
+  "strict-ssl": false
+}
