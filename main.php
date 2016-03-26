@@ -1,9 +1,9 @@
 <?php
-    require 'api/chatterbot/php/chatterbotapi.php';
-    require 'api/stanford-nlp/php/autoload.php';
+    require 'src/api/chatterbot/php/chatterbotapi.php';
+    require 'src/api/stanford-nlp/php/autoload.php';
     require 'src/command.php';
     // echo __DIR__;
-    $pos = new \StanfordNLP\POSTagger(__DIR__.'/api/stanford-nlp/stanford-postagger/models/english-left3words-distsim.tagger',__DIR__.'/api/stanford-nlp/stanford-postagger/stanford-postagger.jar');
+    $pos = new \StanfordNLP\POSTagger(__DIR__.'/src/api/stanford-nlp/stanford-postagger/models/english-left3words-distsim.tagger',__DIR__.'/src/api/stanford-nlp/stanford-postagger/stanford-postagger-3.5.0.jar');
     $handle = fopen("php://stdin","r");
 
 
@@ -25,7 +25,7 @@
         // $result = $pos->tag(explode(' ', $s));
         
         var_dump($pos);
-        $result = $pos->tag(explode(' ', "What does the fox say?"));
+        $result = $pos->tag(explode(' ', $s));
         var_dump($result);
         // echo json_encode($result);
 

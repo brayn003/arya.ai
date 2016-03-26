@@ -278,11 +278,11 @@
         $contextParams['http']['header'] = "";
 
         // proxy
-        $auth = base64_encode('b10:mangesh');
-        $proxy_string = "tcp://10.0.3.246:8070";
-        $contextParams['http']['proxy'] = $proxy_string;
-        $contextParams['http']['request_fulluri'] = true;
-        $contextParams['http']['header'] .= "Proxy-Authorization: Basic $auth\r\n";
+        // $auth = base64_encode('b10:mangesh');
+        // $proxy_string = "tcp://10.0.3.246:8070";
+        // $contextParams['http']['proxy'] = $proxy_string;
+        // $contextParams['http']['request_fulluri'] = true;
+        // $contextParams['http']['header'] .= "Proxy-Authorization: Basic $auth\r\n";
         // proxy end
 
 
