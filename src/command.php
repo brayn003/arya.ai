@@ -7,7 +7,7 @@
 		function __construct($verb,$noun){
 			$this->verb = $verb;
 			$this->noun = $noun;
-			echo $this->parseCommand($verb,$noun);
+			// echo $this->parseCommand($verb,$noun);
 		}
 
 		private function parseCommand($verb,$noun){

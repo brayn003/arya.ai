@@ -1,39 +1,30 @@
 <?php
-    require 'api/chatterbot/php/chatterbotapi.php';
-    require 'api/stanford-nlp/php/autoload.php';
-    require 'src/command.php';
-    // echo __DIR__;
-    $pos = new \StanfordNLP\POSTagger(__DIR__.'/api/stanford-nlp/stanford-postagger/models/english-left3words-distsim.tagger',__DIR__.'/api/stanford-nlp/stanford-postagger/stanford-postagger.jar');
-    $handle = fopen("php://stdin","r");
-
-
-    $factory = new ChatterBotFactory();
-
-    $bot1 = $factory->create(ChatterBotType::CLEVERBOT);
-    $bot1session = $bot1->createSession();
-
-    // $bot2 = $factory->create(ChatterBotType::PANDORABOTS, 'b0dafd24ee35a477');
-    // $bot2session = $bot2->createSession();
-
-    echo "Go ahead type something\n";
-    while (1) 
-    {
-        echo "you> ";
-
-        $s = fgets($handle);
-        // $com = new Command("take","boobs");
-        // $result = $pos->tag(explode(' ', $s));
-        
-        var_dump($pos);
-        $result = $pos->tag(explode(' ', "What does the fox say?"));
-        var_dump($result);
-        // echo json_encode($result);
-
-        // echo "bot1> $s\n";
-
-        $s = $bot1session->think($s);
-        echo "arya> $s\n";
-
-        // $s = $bot1session->think($s);
-    }
+	session_start();
+	if(isset($_SESSION['user'])){
+		header('location:index2.php');
+	}else{
+		if (isset($_POST['user'])) {
+			$_SESSION['user']['name'] = $_POST['user'];
+			$_SESSION['user']['botsession'] = "";
+			header('location:index2.php');
+		}
+	}
+	
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arya.ai</title>
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+	<form method="POST" action="index.php">
+		<input type="text" name="user" /></input>
+		<input type="submit"></input>
+	</form>
+    <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
