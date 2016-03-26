@@ -2,13 +2,9 @@
     require 'api/chatterbot/php/chatterbotapi.php';
     require 'api/stanford-nlp/php/autoload.php';
     require 'src/command.php';
-
-    $pos = new \StanfordNLP\POSTagger(
-      'api/stanford-nlp/stanford-postagger/models/english-left3words-distsim.tagger',
-      'api/stanford-nlp/stanford-postagger/stanford-postagger.jar'
-    );
-
-    $handle = fopen ("php://stdin","r");
+    // echo __DIR__;
+    $pos = new \StanfordNLP\POSTagger(__DIR__.'/api/stanford-nlp/stanford-postagger/models/english-left3words-distsim.tagger',__DIR__.'/api/stanford-nlp/stanford-postagger/stanford-postagger.jar');
+    $handle = fopen("php://stdin","r");
 
 
     $factory = new ChatterBotFactory();
@@ -25,9 +21,13 @@
         echo "you> ";
 
         $s = fgets($handle);
-        $com = new Command("take","boobs");
-        $result = $pos->tag(explode(' ', $s));
-        echo json_encode($result);
+        // $com = new Command("take","boobs");
+        // $result = $pos->tag(explode(' ', $s));
+        
+        var_dump($pos);
+        $result = $pos->tag(explode(' ', "What does the fox say?"));
+        var_dump($result);
+        // echo json_encode($result);
 
         // echo "bot1> $s\n";
 
