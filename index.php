@@ -1,5 +1,13 @@
 <?php
-    require 'api/php/chatterbotapi.php';
+    require 'api/chatterbot/php/chatterbotapi.php';
+    require 'api/stanford-nlp/php/autoload.php';
+    require 'src/command.php';
+
+    $pos = new \StanfordNLP\POSTagger(
+      'api/stanford-nlp/stanford-postagger/models/english-left3words-distsim.tagger',
+      'api/stanford-nlp/stanford-postagger/stanford-postagger.jar'
+    );
+
     $handle = fopen ("php://stdin","r");
 
 
@@ -15,7 +23,11 @@
     while (1) 
     {
         echo "you> ";
+
         $s = fgets($handle);
+        $com = new Command("take","boobs");
+        $result = $pos->tag(explode(' ', $s));
+        echo json_encode($result);
 
         // echo "bot1> $s\n";
 
