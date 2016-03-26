@@ -87,6 +87,7 @@ window.onload = function () {
                 messageFeed.scrollTop = messageFeed.scrollHeight;
                 $('#message-input').prop('disabled', false);
                 $('#message-input').attr("placeholder", "Type your message here");
+                $('#message-input').focus();
 
               // $( "#log" ).html( msg );
             });
