@@ -7,7 +7,7 @@
     require 'api/stanford-nlp/php/autoload.php';
     require 'command.php';
 
-    $msg = "take a note";
+    $msg = "take a note for me please";
 
     if (isset($_POST['msg'])) {
         $msg = $_POST['msg'];
@@ -40,16 +40,20 @@
         $com = new Command($vbarr,$nnarr);
         if($com->parseCommand()){
             $_SESSION['command']['parsecode'] = $com->parseCommand();
-            echo json_encode(array('reply' => 'Sure, what is it?' ));
+            echo json_encode(array('reply' => 'Sure, what is it?', 'msg' => $msg ));
         }else{
             $rmsg = $bot1session->think($msg);
-            echo json_encode(array('reply' => $rmsg));
+            echo json_encode(array('reply' => $rmsg, 'msg' => $msg));
         }
     }else{
         $command = new BaseCommand($_SESSION['command']['parsecode']);
-        $command->execute($msg);
+        $rmsg = $command->execute($msg);
         unset($_SESSION['command']);
-        echo json_encode(array('reply' => 'Done' ));
+        if($rmsg){
+            echo json_encode(array('reply' => $rmsg, 'msg' => $msg ));
+        }else{
+            echo json_encode(array('reply' => 'Sorry couldn\'t do it', 'msg' => $msg ));
+        }
     }
         
 ?>

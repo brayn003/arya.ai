@@ -1,7 +1,7 @@
 <?php
     session_start();
     $user = $_SESSION['user'];
-    // echo json_encode($_SESSION);
+    echo json_encode($_SESSION);
 ?>
 
 <!DOCTYPE html>
