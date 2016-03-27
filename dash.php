@@ -20,7 +20,8 @@
     <div class="fullheight container-fluid">
         <div style="height: 10%;background-color:#333;" class="row">
             <div class="col-md-12">
-                <h2 style="color: #FFF">arya.ai</h2>
+                <img style="height: 60px;margin-top: 5px;" src="asset/img/logo_arya.png">
+                <!-- <h2 style="color: #FFF">arya.ai --><a href="logout.php" style="margin-top:10px;" class="btn btn-primary btn-lg pull-right">Logout</a><!-- </h2> -->
             </div>
         </div>
         <div style="height: 90%;" class="row">

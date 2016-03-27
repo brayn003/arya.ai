@@ -151,7 +151,7 @@ header {
   -o-background-size: cover;
   background-position: center;
 
-  background-image: url('../img/ha.png');
+  background-image: url('../asset/img/cover.png');
   text-align: center;
   color: white;
 }
@@ -195,7 +195,7 @@ header .header-content .header-content-inner p {
   }
   header .header-content .header-content-inner p {
     font-size: 18px;
-    max-width: 80%;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
