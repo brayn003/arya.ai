@@ -1,7 +1,7 @@
 <?php
     session_start();
     $user = $_SESSION['user'];
-    echo json_encode($_SESSION);
+    // echo json_encode($_SESSION);
 
 ?>
 
@@ -50,11 +50,7 @@
                 <div style="height: 50%;background: #222; " class="row"></div>
                 <div style="height: 50%;background: #222;" class="row">
                     <h3 class="tile-title">Grammar</h3>
-                    <div id="#grammar-feed">
-                        <div class="grammar">
-                            <p>I<br />
-                            <span><b>Pronoun</b></span></p>
-                        </div>
+                    <div id="grammar-feed">
                     </div>
                 </div>
             </div>
@@ -67,6 +63,7 @@
     <script type="text/javascript">
         var username = <?php echo "'".$user['name']."'"; ?>
     </script>
+    <script type="text/javascript" src="js/grammar.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
