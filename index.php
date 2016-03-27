@@ -17,7 +17,7 @@
 <head>
 
 
-    <title>Creative - Start Bootstrap Theme</title>
+    <title>Welcome to arya.ai</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.min.css" />

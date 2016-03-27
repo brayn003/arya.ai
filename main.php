@@ -23,7 +23,7 @@
 
         if (!$cmflag) {
             $result = $pos->tag(explode(' ', $s));
-            echo json_encode($result);
+            // echo json_encode($result);
             $vbarr = [];
             $nnarr = [];
             foreach ($result as $value) {
