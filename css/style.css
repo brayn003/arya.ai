@@ -1032,3 +1032,31 @@ html, body{
 .message-name p{
   color:#FFF;
 }
+
+.tile-title{
+  color: #fff;
+  padding: 0px 10px;
+  font-family: 'lato';
+  font-weight: 300;
+}
+
+.grammar{
+  width:50%;
+  height: 60px;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  float: left;
+  padding: 10px;
+}
+
+.grammar p{
+  font-size:22px;
+  padding-left: 10px;
+  color:#FFF;
+  margin:0px;
+}
+
+.grammar span{
+  font-size:12px;
+}

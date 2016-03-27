@@ -1,7 +1,8 @@
 <?php
     session_start();
     $user = $_SESSION['user'];
-    // echo json_encode($_SESSION);
+    echo json_encode($_SESSION);
+
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +44,18 @@
                             
                         </div>
                     </div>    
+                </div>
+            </div>
+            <div class="fullheight col-md-4">
+                <div style="height: 50%;background: #222; " class="row"></div>
+                <div style="height: 50%;background: #222;" class="row">
+                    <h3 class="tile-title">Grammar</h3>
+                    <div id="#grammar-feed">
+                        <div class="grammar">
+                            <p>I<br />
+                            <span><b>Pronoun</b></span></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

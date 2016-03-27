@@ -6,8 +6,9 @@
     require 'api/chatterbot/php/chatterbotapi.php';
     require 'api/stanford-nlp/php/autoload.php';
     require 'command.php';
+    // require 'grammar.php';
 
-    $msg = "take a note";
+    $msg = "take a note for me please";
 
     if (isset($_POST['msg'])) {
         $msg = $_POST['msg'];
@@ -40,16 +41,20 @@
         $com = new Command($vbarr,$nnarr);
         if($com->parseCommand()){
             $_SESSION['command']['parsecode'] = $com->parseCommand();
-            echo json_encode(array('reply' => 'Sure, what is it?' ));
+            echo json_encode(array('reply' => 'Sure, what is it?', 'msg' => $msg, 'grammar' => array_flip($result) ));
         }else{
             $rmsg = $bot1session->think($msg);
-            echo json_encode(array('reply' => $rmsg));
+            echo json_encode(array('reply' => $rmsg, 'msg' => $msg, 'grammar' =>  array_flip($result)));
         }
     }else{
         $command = new BaseCommand($_SESSION['command']['parsecode']);
-        $command->execute($msg);
+        $rmsg = $command->execute($msg);
         unset($_SESSION['command']);
-        echo json_encode(array('reply' => 'Done' ));
+        if($rmsg){
+            echo json_encode(array('reply' => $rmsg, 'msg' => $msg, 'grammar' =>  array_flip($result) ));
+        }else{
+            echo json_encode(array('reply' => 'Sorry couldn\'t do it', 'msg' => $msg, 'grammar' =>  array_flip($result) ));
+        }
     }
         
 ?>

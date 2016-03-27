@@ -15,14 +15,16 @@
 				case '11':
 				case '21':
 					$note = new Note($param);
-					$note -> makeNote();
+					$dlink = $note -> makeNote();
+					// $note -> forceDownload();
+					return "Done! I have sent you the note. <a target=\"_blank\" href = \"".$dlink."\" download>Here's your link</a> to download it.";
 					break;
 				
 				default:
+					return false;
 					break;
 			}
 
 		}
-
 	}
 ?>
