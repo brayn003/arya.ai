@@ -307,6 +307,7 @@ body {
   padding-left: 5%;
   padding-right: 5%;
   display: block;
+  text-shadow: 3px 3px 3px #000;
 }
 .message-feed .message .message-name {
   position: relative;
@@ -334,7 +335,7 @@ body {
 .message-feed .message .message-body p {
   font-family: "Lato", sans-serif;
   color: white;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 2em;
   margin: 0px;
 }
@@ -1022,6 +1023,7 @@ html, body{
   font-family:'lato';
   font-size: 48px;
   font-weight: 300;
+  text-shadow: 3px 3px 3px #000;
 }
 
 .header-scrolled .chat-title{
