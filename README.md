@@ -39,14 +39,14 @@ As of now, Arya can only create new notes. To create a new note you must ask the
 
 ### Web Interface
 *User Login*
-![User Login](https://github.com/brayn003/arya.ai/screens/screen_web1.png "User Login")
+![User Login](screens/screen_web1.png "User Login")
 
 *Web Chat*
-![Chat](https://github.com/brayn003/arya.ai/screens/screen_web2.png "Web chat")
+![Chat](screens/screen_web2.png "Web chat")
 ### CLI
 
 *CLI Chat*
-![CLI Chat](https://github.com/brayn003/arya.ai/screens/screen_cli.png "CLI Chat")
+![CLI Chat](screens/screen_cli.png "CLI Chat")
 
 ## Disclaimer
 I am not the owner of Cleverbot/JabberWacky nor Pandorabots. This application should not be used for commercial purposes.
