@@ -29,6 +29,32 @@ There are two core functionalities of Arya, as of now
 1. Chatting with cleverbot
 2. Asking it to execute some tasks
 
-### Tasks
-As of now, Arya can only create new notes. To create a new note you must ask the chatter bot to `take a note` or `make a note` or any other alternative sentence. The meaning of the sentence should imply that you want Arya to take a note.
+### Chat
+The bot chats with the user and is constantly learning. Its an implementation of cleverbot itself. User discretion is advised.
 
+### Tasks
+As of now, Arya can only create new notes. To create a new note you must ask the chatter bot to `take a note` or `make a note` or any other alternative sentence. The meaning of the sentence should imply that you want Arya to take a note. Notes are currently saved in thr `tmp` floder of the project. An auto download prompt is given to the user when this command is executed from the web interface.
+
+## Screenshots
+
+### Web Interface
+*User Login*
+![User Login](https://github.com/brayn003/arya.ai/screens/screen_web1.png "User Login")
+
+*Web Chat*
+![Chat](https://github.com/brayn003/arya.ai/screens/screen_web2.png "Web chat")
+### CLI
+
+*CLI Chat*
+![CLI Chat](https://github.com/brayn003/arya.ai/screens/screen_cli.png "CLI Chat")
+
+## Disclaimer
+I am not the owner of Cleverbot/JabberWacky nor Pandorabots. This application should not be used for commercial purposes.
+
+## Credits
+- [pierredavidbelanger/chatter-bot-api](https://github.com/pierredavidbelanger/chatter-bot-api) for providing the PHP version of chatterbox API.
+- [agentile/PHP-Stanford-NLP](https://github.com/agentile/PHP-Stanford-NLP) for providing a PHP wrapper for Standford NLP POS tagger.
+- [Stanford NLP POS tagger](http://nlp.stanford.edu/software/tagger.shtml) for providing core Stanford NLP POS tagger.
+
+## License
+License details have been provided in LICENSE.txt and applies to the whole project.

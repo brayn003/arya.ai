@@ -40,7 +40,7 @@
 <body id="page-top">
 
         <header> <br><br>
-            <img src="logo_arya.png" alt="Smiley face" height="40%" width="40%">
+            <img src="asset/img/logo_arya.png" alt="Smiley face" height="40%" width="40%">
                 <div class="header-content">
                     <div class="header-content-inner">
                         <form  method="POST" action="index.php"> 
