@@ -48,8 +48,13 @@
                 </div>
             </div>
             <div class="fullheight col-md-4">
-                <div style="height: 50%;background: #222; " class="row"></div>
-                <div style="height: 50%;background: #222;" class="row">
+                <div style="height: 30%;background: #222; " class="row">
+                    <h3 class="tile-title">Commands</h3>
+                    <div>
+                      <p class="com-para"> - You can ask it to make notes as of now</p>  
+                    </div>
+                </div>
+                <div style="height: 70%;background: #222;" class="row">
                     <h3 class="tile-title">Grammar</h3>
                     <div id="grammar-feed">
                     </div>
