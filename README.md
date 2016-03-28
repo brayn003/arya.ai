@@ -33,7 +33,7 @@ There are two core functionalities of Arya, as of now
 The bot chats with the user and is constantly learning. Its an implementation of cleverbot itself. User discretion is advised.
 
 ### Tasks
-As of now, Arya can only create new notes. To create a new note you must ask the chatter bot to `take a note` or `make a note` or any other alternative sentence. The meaning of the sentence should imply that you want Arya to take a note. Notes are currently saved in thr `tmp` floder of the project. An auto download prompt is given to the user when this command is executed from the web interface.
+As of now, Arya can only create new notes. To create a new note you must ask the chatter bot to `take a note` or `make a note` or any other alternative sentence. The meaning of the sentence should imply that you want Arya to take a note. Notes are currently saved in the `tmp` folder of the project. An auto download prompt is given to the user when this command is executed from the web interface.
 
 ## Screenshots
 
@@ -49,7 +49,7 @@ As of now, Arya can only create new notes. To create a new note you must ask the
 ![CLI Chat](screens/screen_cli.png "CLI Chat")
 
 ## Disclaimer
-I am not the owner of Cleverbot/JabberWacky nor Pandorabots. This application should not be used for commercial purposes.
+I am not the owner of Cleverbot/JabberWacky nor Pandorabots.
 
 ## Credits
 - [pierredavidbelanger/chatter-bot-api](https://github.com/pierredavidbelanger/chatter-bot-api) for providing the PHP version of chatterbox API.
