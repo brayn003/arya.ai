@@ -39,13 +39,25 @@ As of now, Arya can only create new notes. To create a new note you must ask the
 
 ### Web Interface
 *User Login*
+
 ![User Login](screens/screen_web1.png "User Login")
 
 *Web Chat*
+
 ![Chat](screens/screen_web2.png "Web chat")
+
+*Take Note*
+
+![Take note](screens/screen_web3.png "Take Note")
+### CLI
+
+*Grammar*
+
+![Grammar](screens/screen_web4.png "Grammar")
 ### CLI
 
 *CLI Chat*
+
 ![CLI Chat](screens/screen_cli.png "CLI Chat")
 
 ## Disclaimer
