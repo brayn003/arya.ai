@@ -61,6 +61,9 @@ As of now, Arya can only create new notes. To create a new note you must ask the
 
 ![CLI Chat](screens/screen_cli.png "CLI Chat")
 
+##News
+28 Mar, 2016: Bug of backslash/frontslash removed. The code now works on windows.
+
 ## Disclaimer
 I am not the owner of Cleverbot/JabberWacky nor Pandorabots.
 

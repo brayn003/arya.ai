@@ -11,7 +11,9 @@
 		public function makeNote()
 		{
 			$filename = "note".time().".txt";
-			$fileloc = str_replace("/src/commands","",__DIR__)."/tmp/";
+			$fileloc = str_replace("/src/commands","",__DIR__);
+			$fileloc = str_replace("\src\commands","",$fileloc);
+			$fileloc .="/tmp/";
 			$file = fopen($fileloc.$filename, "w");
 			fwrite($file, $this->msg);
 			fclose($file);
