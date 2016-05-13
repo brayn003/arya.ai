@@ -55,7 +55,7 @@
     
     abstract class ChatterBot
     {
-        public function createSession()
+        public function createSession($lang = 'en')
         {
             return null;
         }
@@ -128,30 +128,34 @@
             $this->endIndex = $endIndex;
         }        
 
-        public function createSession()
+        public function createSession($lang = 'en')
         {
-            return new _CleverbotSession($this);
+            return new _CleverbotSession($this, $lang);
         }
     }
     
     class _CleverbotSession extends ChatterBotSession
     {
         private $bot;
+        private $headers;
         private $cookies;
         private $vars;
 
-        public function __construct($bot)
+        public function __construct($bot, $lang)
         {
             $this->bot = $bot;
+            $this->headers = array();
+            $this->headers['Accept-Language'] = "$lang;q=1.0";
             $this->vars = array();
-            $this->vars['start'] = 'y';
-            $this->vars['icognoid'] = 'wsf';
-            $this->vars['fno'] = '0';
-            $this->vars['sub'] = 'Say';
+            //$this->vars['start'] = 'y';
+            $this->vars['stimulus'] = '';
             $this->vars['islearning'] = '1';
-            $this->vars['cleanslate'] = 'false';
+            $this->vars['icognoid'] = 'wsf';
+            //$this->vars['fno'] = '0';
+            //$this->vars['sub'] = 'Say';
+            //$this->vars['cleanslate'] = 'false';
             $this->cookies = array();
-            _utils_request($this->bot->getBaseUrl(), $this->cookies, null);
+            _utils_request($this->bot->getBaseUrl(), $this->cookies, null, $this->headers);
         }
 
         public function thinkThought($thought)
@@ -161,7 +165,7 @@
             $dataToDigest = substr($data, 9, $this->bot->getEndIndex());
             $dataDigest = md5($dataToDigest);
             $this->vars['icognocheck'] = $dataDigest;
-            $response = _utils_request($this->bot->getServiceUrl(), $this->cookies, $this->vars);
+            $response = _utils_request($this->bot->getServiceUrl(), $this->cookies, $this->vars, $this->headers);
             $responseValues = explode("\r", $response);
             //self.vars['??'] = _utils_string_at_index($responseValues, 0);
             $this->vars['sessionid'] = _utils_string_at_index($responseValues, 1);
@@ -175,20 +179,20 @@
             $this->vars['vText2'] = _utils_string_at_index($responseValues, 9);
             $this->vars['prevref'] = _utils_string_at_index($responseValues, 10);
             //$this->vars['??'] = _utils_string_at_index($responseValues, 11);
-            $this->vars['emotionalhistory'] = _utils_string_at_index($responseValues, 12);
-            $this->vars['ttsLocMP3'] = _utils_string_at_index($responseValues, 13);
-            $this->vars['ttsLocTXT'] = _utils_string_at_index($responseValues, 14);
-            $this->vars['ttsLocTXT3'] = _utils_string_at_index($responseValues, 15);
-            $this->vars['ttsText'] = _utils_string_at_index($responseValues, 16);
-            $this->vars['lineRef'] = _utils_string_at_index($responseValues, 17);
-            $this->vars['lineURL'] = _utils_string_at_index($responseValues, 18);
-            $this->vars['linePOST'] = _utils_string_at_index($responseValues, 19);
-            $this->vars['lineChoices'] = _utils_string_at_index($responseValues, 20);
-            $this->vars['lineChoicesAbbrev'] = _utils_string_at_index($responseValues, 21);
-            $this->vars['typingData'] = _utils_string_at_index($responseValues, 22);
-            $this->vars['divert'] = _utils_string_at_index($responseValues, 23);
+//            $this->vars['emotionalhistory'] = _utils_string_at_index($responseValues, 12);
+//            $this->vars['ttsLocMP3'] = _utils_string_at_index($responseValues, 13);
+//            $this->vars['ttsLocTXT'] = _utils_string_at_index($responseValues, 14);
+//            $this->vars['ttsLocTXT3'] = _utils_string_at_index($responseValues, 15);
+//            $this->vars['ttsText'] = _utils_string_at_index($responseValues, 16);
+//            $this->vars['lineRef'] = _utils_string_at_index($responseValues, 17);
+//            $this->vars['lineURL'] = _utils_string_at_index($responseValues, 18);
+//            $this->vars['linePOST'] = _utils_string_at_index($responseValues, 19);
+//            $this->vars['lineChoices'] = _utils_string_at_index($responseValues, 20);
+//            $this->vars['lineChoicesAbbrev'] = _utils_string_at_index($responseValues, 21);
+//            $this->vars['typingData'] = _utils_string_at_index($responseValues, 22);
+//            $this->vars['divert'] = _utils_string_at_index($responseValues, 23);
             $responseThought = new ChatterBotThought();
-            $text = _utils_string_at_index($responseValues, 16);
+            $text = _utils_string_at_index($responseValues, 0);
             if (!is_null($text))
             {
                 $text = preg_replace_callback(
@@ -230,7 +234,7 @@
             $this->botid = $botid;
         }        
         
-        public function createSession()
+        public function createSession($lang = 'en')
         {
             return new _PandorabotsSession($this);
         }
@@ -271,30 +275,15 @@
     # Utils
     #################################################
 
-    function _utils_request($url, &$cookies, $params)
+    function _utils_request($url, &$cookies, $params, $headers = null)
     {
         $contextParams = array();
         $contextParams['http'] = array();
-        $contextParams['http']['header'] = "";
-
-        // proxy
-        // $auth = base64_encode('b10:mangesh');
-        // $proxy_string = "tcp://10.0.3.246:8070";
-        // $contextParams['http']['proxy'] = $proxy_string;
-        // $contextParams['http']['request_fulluri'] = true;
-        // $contextParams['http']['header'] .= "Proxy-Authorization: Basic $auth\r\n";
-        // proxy end
-
-
-
         if ($params)
         {
             $contextParams['http']['method'] = 'POST';
             $contextParams['http']['content'] = http_build_query($params);
-            $contextParams['http']['header'] .= "Content-type: application/x-www-form-urlencoded\r\n";
-
-            
-
+            $contextParams['http']['header'] = "Content-type: application/x-www-form-urlencoded\r\n";
         }
         else
         {
@@ -315,6 +304,20 @@
             else
             {
                 $contextParams['http']['header'] = $cookieHeader;
+            }
+        }
+        if (!is_null($headers))
+        {
+            foreach ($headers as $headerName => $headerValue)
+            {
+                if (isset($contextParams['http']['header']))
+                {
+                    $contextParams['http']['header'] .= "$headerName: $headerValue\r\n";
+                }
+                else
+                {
+                    $contextParams['http']['header'] = "$headerName: $headerValue\r\n";
+                }
             }
         }
         $context = stream_context_create($contextParams);
